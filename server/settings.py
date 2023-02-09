@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import environ
 from pathlib import Path
+import os
 
 env = environ.Env()
 environ.Env.read_env()
@@ -27,7 +28,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOST = ['*']
 
 
 # Application definition
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'server.urls'
@@ -84,7 +86,7 @@ DATABASES = {
         'USER': env("DATABASE_USER"),
         'PASSWORD': env("DATABASE_PASSWORD"),
         'HOST': env("DATABASE_HOST"),
-        # 'PORT': env("DATABASE_PORT"),
+        'PORT': env("DATABASE_PORT"),
     }
 }
 
@@ -124,6 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
