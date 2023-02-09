@@ -135,9 +135,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Update database configuration from $DATABASE_URL.
-# import dj_database_url
-# DATABASE_URL = env("DATABASE_URL")
+import dj_database_url
+DATABASE_URL = env("DATABASE_URL")
 
-# DATABASES = {
-#     "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
-# }
+DATABASES = {
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+}
