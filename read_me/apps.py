@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ReadmeConfig(AppConfig):
+class ReadMeConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'readme'
+    name = 'read_me'
