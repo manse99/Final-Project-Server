@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 
 from rest_framework import routers
-from readme.views import UserViewSet, PostViewSet, CommentsViewSet, SubsViewSet
+from read_me.views import UserViewSet, PostViewSet, CommentsViewSet, SubsViewSet
 
 router = routers.DefaultRouter()
 router.register(r"post", PostViewSet)
