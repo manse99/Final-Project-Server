@@ -1,5 +1,5 @@
 ## Final-Project-Server
-#####This is the Backend of a Fullstack Social Media application built using Django, Postgresql and deployed with Railway.
+##### This is the Backend of a Fullstack Social Media application built using Django, Postgresql and deployed with Railway.
 
 Members:
 - Angela Kwon
@@ -56,5 +56,32 @@ Members:
   Handles the server headers required specifically for Cross-Origin Resource Sharing (CORS). A lack of this makes it difficult to interact with the Database.
 #### Gunicorn
   A WSGI server application for Django, which abstracts much of the logic for your deployed applications.
-  
+#### WhiteNoise
+  Django middleware which compresses your files, hashes them with unique indentifiers so they can be safely cached. Useful for dealng with staaticc files.
+
+## Project Schemas
+##### This project employs 4 basic Schemas: Posts, Comments, Users, and Sub-Pages
+
+#### Posts contain:
+    title - A Char Field which denotes the title.
+    text - A Text Field to determine the text content of the post if it is desired.
+    img_url - A Text Field to determine the image if one is used.
+    up_votes - An Integer Field which stores the positive interaction from Users.
+    down_votes - An Integer Field which stores the negative interaction from Users.
+    user - Connects the post to a User in the database.
+    sub - Connects the pst to a Sub Page in he database.
+#### Comments contain:
+    comment - A Text Field to determine the text content of the comment.
+    up_votes - An Integer Field which stores the positive interaction from Users.
+    down_votes - An Integer Field which stores the negative interaction from Users.
+    commenter - Connects the post to a User in the database.
+    post- Connects the comment to a post in the database.
+#### Subs contain:
+    title - A Char Field which denotes the title.
+    followers - An Integer Array which contains the id's of the following Users.
+    creator - Connects the post to a User in the database.
+    description - A Text Field which contains a description of the Sub Page
+    * img - A Text Field which contains the Url of the Sub Page profile image.
+    * cover_img - A Text Field which contains the Url of the cover image of the Sub Page
+##### All fields contain CRUD functionaliy for all requests (Get, Post, Put, Delete)
   
