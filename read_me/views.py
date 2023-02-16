@@ -7,21 +7,21 @@ from .serializers import UserSerializer,PostSerializer,CommentsSerializer,SubsSe
 from .models import User,Post,Subs,Comments
 
 class PostViewSet(viewsets.ModelViewSet):
-    # permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
-    # permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 class SubsViewSet(viewsets.ModelViewSet):
-    # permission_classes = [IsAuthenticatedOrReadOnly]    
+    permission_classes = [IsAuthenticatedOrReadOnly]    
     queryset = Subs.objects.all()
     serializer_class = SubsSerializer
 
 class CommentsViewSet(viewsets.ModelViewSet):
-    # permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = Comments.objects.all()
     serializer_class = CommentsSerializer
